@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <path
+    d="M64 10c9.4 0 17 7.6 17 17s-7.6 17-17 17-17-7.6-17-17S54.6 10 64 10Z"
+    stroke="#D8B35A"
+    stroke-width="8"
+  />
+  <path
+    d="M64 44v48"
+    stroke="#F3F7FF"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+  <path
+    d="M36 58h56"
+    stroke="#F3F7FF"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+  <path
+    d="M24 78c0 22.1 17.9 40 40 40 10.6 0 20.4-4.1 27.7-10.9M104 78c0 10.6-4.1 20.4-10.9 27.7"
+    stroke="#D8B35A"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+  <path
+    d="M28 78h16m56 0h16"
+    stroke="#F3F7FF"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+</svg>
