@@ -28,7 +28,8 @@ export function validateContact(values: ContactFormValues): ContactFormErrors {
 export type ContactApiResponse = { ok: true } | { ok: false; error: string }
 
 export async function sendContact(values: ContactFormValues) {
-  const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5174'
+  const apiBase =
+    import.meta.env.VITE_API_BASE_URL || 'https://mr-abel-portfolio.onrender.com'
   const res = await fetch(`${apiBase}/contact`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
