@@ -8,18 +8,12 @@ import { z } from 'zod'
 
 const envSchema = z.object({
   PORT: z.string().optional(),
-  ALLOWED_ORIGIN: z.string().optional(),
   TO_EMAIL: z.string().email(),
   RESEND_API_KEY: z.string().min(1),
   RESEND_FROM: z.string().email(),
 })
 
 const env = envSchema.parse(process.env)
-
-const allowedOrigins = (env.ALLOWED_ORIGIN ?? '')
-  .split(',')
-  .map((s) => s.trim())
-  .filter(Boolean)
 
 const app = express()
 
@@ -31,13 +25,9 @@ app.use(
 
 app.use(express.json({ limit: '20kb' }))
 
-app.use(
-  cors({
-    // If ALLOWED_ORIGIN is not set, allow all origins (useful for simple deployments).
-    // If it is set (comma-separated), restrict to that list.
-    origin: allowedOrigins.length === 0 ? true : allowedOrigins,
-  }),
-)
+// Simple CORS: allow all origins. This makes the deployed frontend work
+// without needing extra CORS env configuration.
+app.use(cors())
 
 app.get('/health', (_req, res) => {
   res.json({ ok: true })
