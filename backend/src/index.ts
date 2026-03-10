@@ -33,12 +33,9 @@ app.use(express.json({ limit: '20kb' }))
 
 app.use(
   cors({
-    origin(origin, cb) {
-      if (!origin) return cb(null, true) // curl / server-to-server
-      if (allowedOrigins.length === 0) return cb(null, true) // dev default
-      if (allowedOrigins.includes(origin)) return cb(null, true)
-      return cb(new Error('Not allowed by CORS'))
-    },
+    // If ALLOWED_ORIGIN is not set, allow all origins (useful for simple deployments).
+    // If it is set (comma-separated), restrict to that list.
+    origin: allowedOrigins.length === 0 ? true : allowedOrigins,
   }),
 )
 
