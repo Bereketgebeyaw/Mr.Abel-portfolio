@@ -17,6 +17,9 @@ const env = envSchema.parse(process.env)
 
 const app = express()
 
+// Behind Render's proxy, trust X-Forwarded-* so express-rate-limit works correctly.
+app.set('trust proxy', 1)
+
 app.use(
   helmet({
     crossOriginResourcePolicy: { policy: 'cross-origin' },
