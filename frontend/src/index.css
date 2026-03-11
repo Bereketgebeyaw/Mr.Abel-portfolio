@@ -45,6 +45,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(
       1200px 700px at 20% -10%,
@@ -58,6 +59,14 @@ body {
     ),
     var(--bg);
   background-attachment: fixed;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main#content {
+  display: block;
 }
 
 a {
@@ -791,10 +800,12 @@ a:hover {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.75rem;
+  flex-wrap: wrap;
 }
 .timelineTitle {
   font-weight: 850;
   letter-spacing: -0.01em;
+  min-width: 0;
 }
 .timelineDate {
   color: var(--muted);
