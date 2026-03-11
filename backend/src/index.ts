@@ -10,7 +10,6 @@ const envSchema = z.object({
   PORT: z.string().optional(),
   TO_EMAIL: z.string().email(),
   RESEND_API_KEY: z.string().min(1),
-  RESEND_FROM: z.string().email(),
 })
 
 const env = envSchema.parse(process.env)
@@ -50,6 +49,7 @@ const contactSchema = z.object({
 })
 
 const resend = new Resend(env.RESEND_API_KEY)
+const RESEND_FROM = 'Portfolio <onboarding@resend.dev>'
 
 app.post('/contact', contactLimiter, async (req, res) => {
   const parsed = contactSchema.safeParse(req.body)
@@ -77,7 +77,7 @@ app.post('/contact', contactLimiter, async (req, res) => {
     ].join('\n')
 
     const sendResult = await resend.emails.send({
-      from: env.RESEND_FROM,
+      from: RESEND_FROM,
       to: env.TO_EMAIL,
       replyTo: email,
       subject,
