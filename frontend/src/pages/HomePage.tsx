@@ -13,8 +13,8 @@ export function HomePage() {
               Maritime cadet focused on seamanship, safety, and growth at sea.
             </p>
             <div className="btnRow">
-              <Link className="btn btnPrimary" to="/journey">
-                View journey
+              <Link className="btn btnPrimary" to="/about">
+                About me
               </Link>
               <Link className="btn" to="/contact">
                 Contact

@@ -122,8 +122,8 @@ export function AboutPage() {
           </ul>
 
           <div className="btnRow">
-            <Link className="btn btnPrimary" to="/journey">
-              View journey
+            <Link className="btn btnPrimary" to="/skills">
+              Skills & certifications
             </Link>
             <Link className="btn" to="/contact">
               Contact
